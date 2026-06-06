@@ -42,12 +42,11 @@ test('Locked out user login', async ({ page }) => {
     await expect(LoginPage.error_assertion).toContainText("Epic sadface");
 });
 
-// test('Delayed user login', async ({ page }) => {
-//     const LoginPage = new loginPage(page);
-//     await LoginPage.gotologinpage();
-//     await LoginPage.login('performance_glitch_user', 'secret_sauce');
-//     await page.waitForLoadState('networkidle');
+test('Delayed user login', async ({ page }) => {
+    const LoginPage = new loginPage(page);
+    await LoginPage.gotologinpage();
+    await LoginPage.login('performance_glitch_user', 'secret_sauce');
 
-//     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
-//     await expect(LoginPage.nxtpage_assertion).toHaveText("Products");
-// });
+    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+    await expect(LoginPage.nxtpage_assertion).toHaveText("Products");
+});
